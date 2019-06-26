@@ -1,0 +1,143 @@
+$color_1: #646aff;
+$color_2: #ffad65;
+$color_3: white;
+$color_4: black;
+$font_family_1: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+$background_color_1: #646aff;
+$background_color_2: #f1f1f1;
+$background_color_3: #ddd;
+
+body {
+	font-family: $font_family_1;
+	color: $color_1;
+}
+hr {
+	background-color: $background_color_1;
+	height: 2px;
+	margin-bottom: 1rem;
+}
+.container {
+	margin: 2rem 2rem 1rem 2rem;
+	padding: 1rem;
+}
+.header-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 6rem;
+	>div {
+		background-color: $background_color_2;
+		margin: 10px;
+		width: 40%;
+		text-align: center;
+		line-height: 75px;
+		font-size: 30px;
+	}
+}
+.title-image-container {
+	padding-right: 5rem;
+}
+#title-text {
+	text-align: center;
+	font-size: 5rem;
+}
+.padded-button {
+	padding: 1rem;
+	width: 100%;
+	border-radius: 2%;
+	text-transform: uppercase;
+	font-weight: bolder;
+	font-size: 1rem;
+	color: $color_2;
+	margin-bottom: 8px;
+	border: 2px solid #646aff;
+	outline: none;
+	&:hover {
+		border: 2px solid #ffad65;
+	}
+}
+.footer {
+	height: 1rem;
+	padding: 1rem;
+	font-size: 14px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: $background_color_1;
+	color: $color_3;
+	text-align: center;
+}
+.title-signup {
+	text-align: center;
+	height: 5rem;
+}
+form {
+	color: $color_4;
+	margin-bottom: 1rem;
+}
+input[type="email"] {
+	width: 98%;
+	height: 0.5rem;
+	margin: 6px 0 23px 0;
+	display: inline-block;
+	border: none;
+	padding: 15px;
+	background: #f1f1f1;
+	outline: none;
+	&:focus {
+		outline: none;
+		background-color: $background_color_3;
+		border: 2px solid #ffad65;
+	}
+}
+input[type="text"] {
+	width: 98%;
+	height: 0.5rem;
+	margin: 6px 0 23px 0;
+	display: inline-block;
+	border: none;
+	padding: 15px;
+	background: #f1f1f1;
+	outline: none;
+	&:focus {
+		outline: none;
+		background-color: $background_color_3;
+		border: 2px solid #ffad65;
+	}
+}
+input[type="password"] {
+	width: 98%;
+	height: 0.5rem;
+	margin: 6px 0 23px 0;
+	display: inline-block;
+	border: none;
+	padding: 15px;
+	background: #f1f1f1;
+	outline: none;
+	&:focus {
+		outline: none;
+		background-color: $background_color_3;
+		border: 2px solid #ffad65;
+	}
+}
+@media screen and (max-width: 722px) {
+	#title-text {
+		text-align: center;
+		font-size: 1.5rem;
+	}
+	input[type="email"] {
+		width: 90%;
+	}
+	input[type="text"] {
+		width: 90%;
+	}
+	input[type="password"] {
+		width: 90%;
+	}
+}
+@media screen and (max-width: 370px) {
+	#title-text {
+		font-size: 0.9rem;
+		text-align: left;
+	}
+}
