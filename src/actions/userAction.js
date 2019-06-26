@@ -44,7 +44,7 @@ export const login = (userData) => dispatch => {
         console.log(err.response.data);
         err.response.message = 'Registration failed';
         dispatch({ type: REGISTER_FAILURE, payload: err.response.data });
-        toast.error(err.response.data.errors[0].error);
+        toast.error(err.response.data.error);
         throw err;
       })
     }
