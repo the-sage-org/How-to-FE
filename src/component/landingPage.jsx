@@ -10,7 +10,7 @@ export default class LandingPage extends Component {
         <div className='container'>
           <div>
             <img
-              src='src/component/common/img/boulders-dawn.jpg'
+              src='https://i.imgur.com/DZgeECy.jpg'
               height='400rem'
               width='100%'
               alt='landing page image'
@@ -20,7 +20,7 @@ export default class LandingPage extends Component {
             <div className='header-container'>
               <div className='title-text-container'>
                 <img
-                  src='src/component/common/img/open-book.png'
+                  src='https://i.imgur.com/iO37GRE.png'
                   height='100%'
                   width='170rem'
                   alt='landing page image'
