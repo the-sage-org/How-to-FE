@@ -38,7 +38,10 @@ class Login extends Component {
       password: data.password
     };
 
-    this.props.login(user);
+    this.props.login(user)
+    .then((res) => {
+      this.props.history.push('/create-guide');
+    });
   };
 
   render() {
@@ -74,6 +77,7 @@ class Login extends Component {
               placeholder='Enter Password'
               name='password'
               onChange={this.handleInputChange}
+              minLength="6"
               required
             />
 
