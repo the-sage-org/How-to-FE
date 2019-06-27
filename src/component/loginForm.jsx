@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { login } from "../actions/userAction";
-import "./common/css/main.scss";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Header from '../component/common/header/header';
+import { login } from '../actions/userAction';
+import './common/css/main.scss';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
   }
 
@@ -21,15 +22,15 @@ class Login extends Component {
   };
 
   changeRoute = () => {
-    const signup = '/register'
+    const signup = '/register';
     this.props.history.push(signup);
-  }
+  };
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     const { data } = this.state;
     if (data === undefined) {
-      toast.error("Fields are empty");
+      toast.error('Fields are empty');
       return;
     }
     const user = {
@@ -38,41 +39,60 @@ class Login extends Component {
     };
 
     this.props.login(user);
-  }
+  };
 
   render() {
-    const resetTagStyle = {
-      verticalAlign: "middle",
-    };
     return (
-      <div className="container">
-      <div className="title-signup">
-              <span id="title-text">How-to</span>
-      </div>
-      <hr/>
-      
-      <form onSubmit={this.onSubmit}>
-          <div >
+      <div className='container'>
+        <Header />
+        <hr />
+
+        <form onSubmit={this.onSubmit}>
+          <div>
             <h1>Welcome Back!</h1>
-        
-            <br/><label htmlFor="email"><b>Email</b></label><br/>
-            <input type="email" placeholder="Enter Email" name="email" onChange={this.handleInputChange} required/>
-        
-            <br/><label htmlFor="password"><b>Password</b></label><br/>
-            <input type="password" placeholder="Enter Password" name="password" onChange={this.handleInputChange} required/>
-        
-        
-            <button type="submit" className="padded-button">Login</button>
+
+            <br />
+            <label htmlFor='email'>
+              <b>Email</b>
+            </label>
+            <br />
+            <input
+              type='email'
+              placeholder='Enter Email'
+              name='email'
+              onChange={this.handleInputChange}
+              required
+            />
+
+            <br />
+            <label htmlFor='password'>
+              <b>Password</b>
+            </label>
+            <br />
+            <input
+              type='password'
+              placeholder='Enter Password'
+              name='password'
+              onChange={this.handleInputChange}
+              required
+            />
+
+            <button type='submit' className='padded-button'>
+              Login
+            </button>
           </div>
         </form>
         <h4>New to the community?</h4>
-          <button type="submit" onClick={this.changeRoute} className="padded-button">Sign Up</button>
+        <button
+          type='submit'
+          onClick={this.changeRoute}
+          className='padded-button'
+        >
+          Sign Up
+        </button>
 
-        <div className="footer">
-              <div className={resetTagStyle}>Copyright &copy; 2019 How-to, LLC All Rights Reserved </div>
-            </div>
-      
-</div>
+        
+      </div>
     );
   }
 }
@@ -80,8 +100,6 @@ class Login extends Component {
 Login.propTypes = {
   login: PropTypes.func.isRequired
 };
-
-
 
 const mapStateToProps = state => ({
   user: state.user.user
