@@ -41,10 +41,10 @@ export const login = (userData) => dispatch => {
         }
       })
       .catch(err => {
-        console.log(err.response.data);
+        console.log(err.response.data.errors[0].error);
         err.response.message = 'Registration failed';
         dispatch({ type: REGISTER_FAILURE, payload: err.response.data });
-        toast.error(err.response.data.error);
+        toast.error(err.response.data.errors[0].error);
         throw err;
       })
     }
