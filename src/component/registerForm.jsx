@@ -43,7 +43,7 @@ class Signup extends Component {
 
     this.props.register(user)
     .then((res) => {
-      this.props.history.push('/create-guide');
+      this.props.history.push('/view-guides');
     });;
   };
 

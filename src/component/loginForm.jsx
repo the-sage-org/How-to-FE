@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../component/common/header/header';
+import Footer from '../component/common/footer/footer';
 import { login } from '../actions/userAction';
 import './common/css/main.scss';
 
@@ -40,7 +41,7 @@ class Login extends Component {
 
     this.props.login(user)
     .then((res) => {
-      this.props.history.push('/create-guide');
+      this.props.history.push('/view-guides');
     });
   };
 
@@ -94,7 +95,7 @@ class Login extends Component {
         >
           Sign Up
         </button>
-
+      <Footer />
         
       </div>
     );

@@ -38,7 +38,10 @@ class CreateAGuide extends Component {
     steps: data.steps
   };
 
-  this.props.createGuide(guide);
+  this.props.createGuide(guide)
+  .then((res) => {
+    this.props.history.push('/view-guides');
+  });;;
   };
   
   render() {
@@ -121,8 +124,8 @@ class CreateAGuide extends Component {
               </button>
             </div>
           </form>
+          <Footer />
         </div>
-        <Footer />
       </div>
     );
   }
