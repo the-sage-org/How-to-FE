@@ -12,9 +12,6 @@ class Signup extends Component {
       email: "",
       password: ""
     };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
 
@@ -30,7 +27,7 @@ class Signup extends Component {
     this.props.history.push(signup);
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
     const { data } = this.state;
     if (data === undefined) {
