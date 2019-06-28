@@ -1,21 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Header from "../component/common/header/header";
 import Footer from "../component/common/footer/footer";
-import { createGuide } from "../actions/guideAction";
+import { updateGuide } from '../actions/guideAction';
 
-class CreateAGuide extends Component {
+class UpdateAGuide extends Component {
   constructor() {
     super();
     this.state = {
+      id: '',
       name: "",
       keywords: "",
       neededItems: "",
       steps: ""
     };
   }
+
+  componentDidMount() {
+      console.log(this.props.location);
+    const { search } = this.props.location;
+    const id = search ? search.split('=')[1] : '';
+    this.setState({ id });
+  };
+
   handleInputChange = ({ currentTarget: input }) => {
     const data = { ...this.state.data };
     data[input.name] = input.value;
@@ -23,27 +32,29 @@ class CreateAGuide extends Component {
     this.setState({ data });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
+    const id = Number(this.state.id)
     const { data } = this.state;
-    console.log(data);
+    console.log(data)
     if (data === undefined) {
-      toast.error("Fields are empty");
+      toast.error('Fields are empty');
       return;
-    }
+   }
 
-    const guide = {
-      name: data.name,
-      keywords: data.keywords,
-      neededItems: data.neededItems,
-      steps: data.steps
-    };
-
-    this.props.createGuide(guide).then(res => {
-      this.props.history.push("/view-guides");
-    });
+   const guide = {
+    name: data.name,
+    keywords: data.keywords,
+    neededItems: data.neededItems,
+    steps: data.steps
   };
 
+  this.props.updateGuide(id, guide)
+  .then(res => {
+    this.props.history.push('/view-guides');
+});
+  };
+  
   render() {
     const { history } = this.props;
     return (
@@ -52,7 +63,7 @@ class CreateAGuide extends Component {
           <div className="header-container">
             <Header />
             <div>
-              <Link to="/" className="btn btn-edit">
+            <Link to="/" className="btn btn-edit">
                 <i className="fa fa-home fa-2x" />
               </Link>
               <Link to="/login" className="btn btn-edit">
@@ -60,14 +71,14 @@ class CreateAGuide extends Component {
               </Link>
               <Link to="/" className="btn btn-edit">
                 <i className="fa fa-search fa-2x" />
-              </Link>
+                </Link>
             </div>
           </div>
           <hr />
           <div className='wrap-form'>
           <form onSubmit={this.onSubmit}>
             <div>
-              <h1>Create Guide!</h1>
+              <h1>Update Guide!</h1>
 
               <label htmlFor="name">
                 <b>Guide Name</b>
@@ -116,7 +127,7 @@ class CreateAGuide extends Component {
               </label>
               <br />
               <textarea
-                placeholder="Enter steps"
+              placeholder="Enter steps"
                 onChange={this.handleInputChange}
                 name="steps"
                 cols="60"
@@ -138,15 +149,15 @@ class CreateAGuide extends Component {
   }
 }
 
-CreateAGuide.propTypes = {
-  createGuide: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => ({
-  guide: state.user.user
-});
-
-export default connect(
-  mapStateToProps,
-  { createGuide }
-)(CreateAGuide);
+UpdateAGuide.propTypes = {
+    updateGuide: PropTypes.func.isRequired
+  };
+  
+  const mapStateToProps = state => ({
+    guide: state.user.user
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { updateGuide }
+  )(UpdateAGuide);
