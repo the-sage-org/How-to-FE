@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import Header from '../component/common/header/header';
+import Footer from '../component/common/footer/footer';
 import { register } from '../actions/userAction';
 import './common/css/main.scss';
 
@@ -40,7 +41,10 @@ class Signup extends Component {
       password: data.password
     };
 
-    this.props.register(user);
+    this.props.register(user)
+    .then((res) => {
+      this.props.history.push('/create-guide');
+    });;
   };
 
   render() {
@@ -63,6 +67,7 @@ class Signup extends Component {
               type='text'
               placeholder='Enter Username'
               name='username'
+              minLength="6"
               onChange={this.handleInputChange}
               required
             />
@@ -90,6 +95,7 @@ class Signup extends Component {
               placeholder='Enter Password'
               onChange={this.handleInputChange}
               name='password'
+              minLength="6"
               required
             />
 
@@ -107,11 +113,7 @@ class Signup extends Component {
           Login
         </button>
 
-        <div className='footer'>
-          <div className={resetTagStyle}>
-            Copyright &copy; 2019 How-to, LLC All Rights Reserved{' '}
-          </div>
-        </div>
+        <Footer />
       </div>
     );
   }

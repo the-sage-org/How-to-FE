@@ -14,7 +14,7 @@ body {
 hr {
 	background-color: $background_color_1;
 	height: 2px;
-	margin-bottom: 1rem;
+	margin: 1rem 0rem 1rem 0rem;
 }
 .container {
 	margin: 2rem 5rem 1rem 5rem;
@@ -35,6 +35,11 @@ hr {
 		text-align: center;
 		line-height: 75px;
 		font-size: 30px;
+		height: 6rem;
+	>i {
+		margin: 1rem 2rem 0rem 0rem;
+		padding: 0.2rem;
+	}
 	}
 }
 .title-image-container {
@@ -73,14 +78,13 @@ hr {
 .title-signup {
 	text-align: center;
 	height: 5rem;
+	margin-top: 1rem;
 }
 form {
 	color: $color_4;
-	margin-bottom: 1rem;
 }
-input[type="email"] {
+textarea {
 	width: 98%;
-	height: 0.5rem;
 	margin: 6px 0 23px 0;
 	display: inline-block;
 	border: none;
@@ -93,22 +97,7 @@ input[type="email"] {
 		border: 2px solid #ffad65;
 	}
 }
-input[type="text"] {
-	width: 98%;
-	height: 0.5rem;
-	margin: 6px 0 23px 0;
-	display: inline-block;
-	border: none;
-	padding: 15px;
-	background: #f1f1f1;
-	outline: none;
-	&:focus {
-		outline: none;
-		background-color: $background_color_3;
-		border: 2px solid #ffad65;
-	}
-}
-input[type="password"] {
+input[type="email"], input[type="text"], input[type="password"] {
 	width: 98%;
 	height: 0.5rem;
 	margin: 6px 0 23px 0;
