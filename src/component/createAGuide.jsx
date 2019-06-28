@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Header from "../component/common/header/header";
 import Footer from "../component/common/footer/footer";
-import { createGuide } from '../actions/guideAction';
+import { createGuide } from "../actions/guideAction";
 
 class CreateAGuide extends Component {
   constructor() {
@@ -25,25 +26,24 @@ class CreateAGuide extends Component {
   onSubmit = e => {
     e.preventDefault();
     const { data } = this.state;
-    console.log(data)
+    console.log(data);
     if (data === undefined) {
-      toast.error('Fields are empty');
+      toast.error("Fields are empty");
       return;
-   }
+    }
 
-   const guide = {
-    name: data.name,
-    keywords: data.keywords,
-    neededItems: data.neededItems,
-    steps: data.steps
+    const guide = {
+      name: data.name,
+      keywords: data.keywords,
+      neededItems: data.neededItems,
+      steps: data.steps
+    };
+
+    this.props.createGuide(guide).then(res => {
+      this.props.history.push("/view-guides");
+    });
   };
 
-  this.props.createGuide(guide)
-  .then((res) => {
-    this.props.history.push('/view-guides');
-  });;;
-  };
-  
   render() {
     const { history } = this.props;
     return (
@@ -52,13 +52,19 @@ class CreateAGuide extends Component {
           <div className="header-container">
             <Header />
             <div>
-              <i className="fa fa-home fa-2x" />
-              <i className="fa fa-user fa-2x" />
-              <i className="fa fa-search fa-2x" />
+              <Link to="/" className="btn btn-edit">
+                <i className="fa fa-home fa-2x" />
+              </Link>
+              <Link to="/login" className="btn btn-edit">
+                <i className="fa fa-user fa-2x" />
+              </Link>
+              <Link to="/" className="btn btn-edit">
+                <i className="fa fa-search fa-2x" />
+              </Link>
             </div>
           </div>
           <hr />
-
+          <div className='wrap-form'>
           <form onSubmit={this.onSubmit}>
             <div>
               <h1>Create Guide!</h1>
@@ -110,7 +116,7 @@ class CreateAGuide extends Component {
               </label>
               <br />
               <textarea
-              placeholder="Enter steps"
+                placeholder="Enter steps"
                 onChange={this.handleInputChange}
                 name="steps"
                 cols="60"
@@ -124,6 +130,7 @@ class CreateAGuide extends Component {
               </button>
             </div>
           </form>
+          </div>
           <Footer />
         </div>
       </div>
@@ -132,14 +139,14 @@ class CreateAGuide extends Component {
 }
 
 CreateAGuide.propTypes = {
-    createGuide: PropTypes.func.isRequired
-  };
-  
-  const mapStateToProps = state => ({
-    guide: state.user.user
-  });
-  
-  export default connect(
-    mapStateToProps,
-    { createGuide }
-  )(CreateAGuide);
+  createGuide: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  guide: state.user.user
+});
+
+export default connect(
+  mapStateToProps,
+  { createGuide }
+)(CreateAGuide);

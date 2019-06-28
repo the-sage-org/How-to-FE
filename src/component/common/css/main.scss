@@ -41,9 +41,13 @@ hr {
     height: 6rem;
     > i {
       margin: 1rem 2rem 0rem 0rem;
-      padding: 0.2rem;
+	  padding: 0.2rem;
     }
   }
+}
+.fa {
+	color: $color_1;
+	margin: 1rem 2rem 0rem 0rem;
 }
 .title-image-container {
   padding-right: 5rem;
