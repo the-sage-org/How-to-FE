@@ -49,13 +49,20 @@ class ViewGuides extends Component {
         />
       ))
     ) : (
-      <div className="no_entry">
+      <div className="no_guides">
         <p id="no-guide">No Guides Yet....</p>
       </div>
     );
     return (
       <div className="container">
+      <div className="header-container">
         <Header />
+        <div>
+              <i className="fa fa-home fa-2x" />
+              <i className="fa fa-user fa-2x" />
+              <i className="fa fa-search fa-2x" />
+            </div>
+        </div>
         <hr />
 
         <h2>All Guides</h2>

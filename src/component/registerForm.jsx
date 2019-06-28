@@ -55,6 +55,7 @@ class Signup extends Component {
       <div className='container'>
         <Header />
         <hr />
+        <div className='wrap-form'>
         <form onSubmit={this.onSubmit}>
           <div>
             <h1>Let's Get Started!</h1>
@@ -112,6 +113,7 @@ class Signup extends Component {
         >
           Login
         </button>
+        </div>
 
         <Footer />
       </div>

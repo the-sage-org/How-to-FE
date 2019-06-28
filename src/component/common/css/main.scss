@@ -6,185 +6,222 @@ $font_family_1: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif
 $background_color_1: #646aff;
 $background_color_2: #f1f1f1;
 $background_color_3: #ddd;
+$background_color_4: white;
 
 body {
-	font-family: $font_family_1;
-	color: $color_1;
-	max-width: 100%;
-    overflow-x: hidden;
+  font-family: $font_family_1;
+  color: $color_1;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 hr {
-	background-color: $background_color_1;
-	height: 2px;
-	margin: 1rem 0rem 1rem 0rem;
+  background-color: $background_color_1;
+  height: 2px;
+  margin: 1rem 0rem 1rem 0rem;
 }
 .container {
-	margin: 2rem 5rem 1rem 5rem;
-	padding: 1rem;
+  margin: 2rem 5rem 1rem 5rem;
+  padding: 1rem;
 }
 .inner-container {
-	margin: 0rem 4rem 0rem 4rem;
+  margin: 0rem 4rem 0rem 4rem;
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 6rem;
+  > div {
+    background-color: $background_color_4;
+    margin: 10px;
+    width: 40%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    height: 6rem;
+    > i {
+      margin: 1rem 2rem 0rem 0rem;
+      padding: 0.2rem;
+    }
+  }
+}
+.title-image-container {
+  padding-right: 5rem;
+}
+#title-text {
+  text-align: center;
+  font-size: 5rem;
+}
+.padded-button {
+  padding: 1rem;
+  width: 100%;
+  border-radius: 2%;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1rem;
+  color: $color_2;
+  margin-bottom: 8px;
+  border: 2px solid #646aff;
+  outline: none;
+  &:hover {
+    border: 2px solid #ffad65;
+  }
+}
+.footer {
+  height: 1rem;
+  padding: 1rem;
+  font-size: 14px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $background_color_1;
+  color: $color_3;
+  text-align: center;
+  margin-top: 3rem;
+}
+.title-signup {
+  text-align: center;
+  height: 5rem;
+  margin-top: 1rem;
+}
+form {
+  color: $color_4;
+}
+textarea {
+  width: 98%;
+  margin: 6px 0 23px 0;
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  background: $background_color_2;
+  outline: none;
+  &:focus {
+    outline: none;
+    background-color: $background_color_3;
+    border: 2px solid #ffad65;
+  }
+}
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 98%;
+  height: 0.5rem;
+  margin: 6px 0 23px 0;
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  background: $background_color_2;
+  outline: none;
+  &:focus {
+    outline: none;
+    background-color: $background_color_3;
+    border: 2px solid #ffad65;
+  }
+}
+.guide-container > .card-container {
+  padding: 2px 16px;
+  width: 100%;
+}
+
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 23rem;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h4,
+p {
+  color: $color_2;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+  margin: 0px 10px 40px 20px;
+  border-radius: 5px;
+  background-color: $background_color_3;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+  padding: 5px;
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+}
+@media screen and (min-width: 723px) {
+	.wrap-form {
+	margin: 2rem 13rem 2rem 13rem;
+	h1 {
+		text-align: center;
+	}
+  }
+}
+@media screen and (max-width: 722px) {
+  #title-text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  input[type="email"] {
+    width: 90%;
+  }
+  input[type="text"] {
+    width: 90%;
+  }
+  input[type="password"] {
+    width: 90%;
+  }
+  .inner-container {
+    margin: 0rem 0rem 0rem 0rem;
+  }
+  .container {
+    margin: 0rem 0rem 0rem 0rem;
+  }
+  .guide-container {
+    margin-left: 10rem;
+  }
+  .fa {
+	  font-size: 20px;
+  }
+}
+@media screen and (max-width: 370px) {
+  #title-text {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  .guide-container {
+    margin-left: 5rem;
+  }
+  .fa {
+	font-size: 5px;
 }
 .header-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	height: 6rem;
-	>div {
-		background-color: $background_color_3;
-		margin: 10px;
-		width: 40%;
-		text-align: center;
-		line-height: 75px;
-		font-size: 30px;
-		height: 6rem;
-	>i {
+	> div {
+	  background-color: $background_color_4;
+	  margin-left: 0px;
+	  width: 40%;
+	  text-align: center;
+	  line-height: 75px;
+	  font-size: 30px;
+	  height: 6rem;
+	  > i {
 		margin: 1rem 2rem 0rem 0rem;
 		padding: 0.2rem;
-	}
-	}
+	  }
 }
-.title-image-container {
-	padding-right: 5rem;
 }
-#title-text {
-	text-align: center;
-	font-size: 5rem;
-}
-.padded-button {
-	padding: 1rem;
-	width: 100%;
-	border-radius: 2%;
-	text-transform: uppercase;
-	font-weight: bolder;
-	font-size: 1rem;
-	color: $color_2;
-	margin-bottom: 8px;
-	border: 2px solid #646aff;
-	outline: none;
-	&:hover {
-		border: 2px solid #ffad65;
-	}
-}
-.footer {
-	height: 1rem;
-	padding: 1rem;
-	font-size: 14px;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: $background_color_1;
-	color: $color_3;
-	text-align: center;
-	margin-top: 3rem;
-}
-.title-signup {
-	text-align: center;
-	height: 5rem;
-	margin-top: 1rem;
-}
-form {
-	color: $color_4;
-}
-textarea {
-	width: 98%;
-	margin: 6px 0 23px 0;
-	display: inline-block;
-	border: none;
-	padding: 15px;
-	background: $background_color_2;
-	outline: none;
-	&:focus {
-		outline: none;
-		background-color: $background_color_3;
-		border: 2px solid #ffad65;
-	}
-}
-input[type="email"], input[type="text"], input[type="password"] {
-	width: 98%;
-	height: 0.5rem;
-	margin: 6px 0 23px 0;
-	display: inline-block;
-	border: none;
-	padding: 15px;
-	background: $background_color_2;
-	outline: none;
-	&:focus {
-		outline: none;
-		background-color: $background_color_3;
-		border: 2px solid #ffad65;
-	}
-}
-.guide-container > .card-container {
-	padding: 2px 16px;
-	width: 100%;
-  }
-  
-  .guide-container {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	margin-left: 23rem;
-	text-align: center;
-  }
-  
-  h2 {
-	  text-align: center;
-  }
-  
-  h4, p {
-	  color: $color_2;
-  }
-  
-  .card {
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	transition: 0.3s;
-	width: 40%;
-	margin: 0px 10px 40px 20px;
-	border-radius: 5px;
-	background-color: $background_color_3;
-  }
-  
-  .card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-
-  .delete-button {
-	  padding: 5px;
-	  background-color: red;
-	  border-radius: 5px;
-	  color: white;
-  }
-@media screen and (max-width: 722px) {
-	#title-text {
-		text-align: center;
-		font-size: 1.5rem;
-	}
-	input[type="email"] {
-		width: 90%;
-	}
-	input[type="text"] {
-		width: 90%;
-	}
-	input[type="password"] {
-		width: 90%;
-	}
-	.inner-container {
-		margin: 0rem 0rem 0rem 0rem;
-	}
-	.container {
-		margin: 0rem 0rem 0rem 0rem;
-	}
-	.guide-container {
-		margin-left: 10rem;
-	}
-}
-@media screen and (max-width: 370px) {
-	#title-text {
-		font-size: 0.9rem;
-		text-align: left;
-	}
-	.guide-container {
-		margin-left: 5rem;
-	}
 }

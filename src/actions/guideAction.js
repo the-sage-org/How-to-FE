@@ -7,7 +7,9 @@ import {
   FETCH_ALL_GUIDES_SUCCESS,
   FETCH_ALL_GUIDES_FAILURE,
   DELETE_GUIDE_SUCCESS,
-  DELETE_GUIDE_FAILURE
+  DELETE_GUIDE_FAILURE,
+  UPDATE_GUIDE_SUCCESS,
+  UPDATE_GUIDE_FAILURE
 } from "./action";
 
 export const createGuide = guideDetails => dispatch => {
@@ -61,6 +63,23 @@ export const deleteGuide = (guideId) => dispatch => {
       .catch(err => {
           toast.error(err.response.data.error)
         dispatch({ type: DELETE_GUIDE_FAILURE, payload: err.response.data.error })
+        console.log(err.response.data);
+        throw err;
+      });
+  }
+
+  export const updateGuide = (guideId, guide) => dispatch => {
+    return axios.patch(`${serverAPI}/guide/${guideId}`, guide)
+      .then(res => {
+          toast.success(res.data.message)
+        dispatch({
+          type: UPDATE_GUIDE_SUCCESS,
+          payload: res.data
+        })
+      })
+      .catch(err => {
+          toast.error(err.response.data.error)
+        dispatch({ type: UPDATE_GUIDE_FAILURE, payload: err.response.data })
         console.log(err.response.data);
         throw err;
       });
