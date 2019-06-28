@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from "../component/common/header/header";
@@ -62,9 +63,15 @@ class UpdateAGuide extends Component {
           <div className="header-container">
             <Header />
             <div>
-              <i className="fa fa-home fa-2x" />
-              <i className="fa fa-user fa-2x" />
-              <i className="fa fa-search fa-2x" />
+            <Link to="/" className="btn btn-edit">
+                <i className="fa fa-home fa-2x" />
+              </Link>
+              <Link to="/login" className="btn btn-edit">
+                <i className="fa fa-user fa-2x" />
+              </Link>
+              <Link to="/" className="btn btn-edit">
+                <i className="fa fa-search fa-2x" />
+                </Link>
             </div>
           </div>
           <hr />

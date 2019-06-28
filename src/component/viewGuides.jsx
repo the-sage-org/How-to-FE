@@ -58,9 +58,15 @@ class ViewGuides extends Component {
       <div className="header-container">
         <Header />
         <div>
-              <i className="fa fa-home fa-2x" />
-              <i className="fa fa-user fa-2x" />
-              <i className="fa fa-search fa-2x" />
+        <Link to="/" className="btn btn-edit">
+                <i className="fa fa-home fa-2x" />
+              </Link>
+              <Link to="/login" className="btn btn-edit">
+                <i className="fa fa-user fa-2x" />
+              </Link>
+              <Link to="/" className="btn btn-edit">
+                <i className="fa fa-search fa-2x" />
+                </Link>
             </div>
         </div>
         <hr />
