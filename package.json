@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.4.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "file-loader": "^3.0.1",
